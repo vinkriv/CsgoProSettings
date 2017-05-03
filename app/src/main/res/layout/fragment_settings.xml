@@ -7,4 +7,12 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/dev1ce"
+        android:layout_marginTop="12dp"
+        android:id="@+id/fragimgview_id"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -5,18 +5,17 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:srcCompat="@drawable/dev1ce"
-        android:id="@+id/imageView" />
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/listimg" />
 
     <TextView
-        android:text="Dev1ce"
-        android:layout_width="318dp"
-        android:layout_height="39dp"
+        android:layout_width="320dp"
+        android:layout_height="65dp"
         android:id="@+id/textView"
         android:textSize="30sp"
         android:textColor="@android:color/black"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginStart="37dp"
+        android:layout_alignBottom="@+id/listimg"
+        android:layout_toEndOf="@+id/listimg" />
 </RelativeLayout>

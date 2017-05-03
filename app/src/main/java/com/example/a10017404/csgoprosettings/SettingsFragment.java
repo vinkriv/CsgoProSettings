@@ -2,10 +2,12 @@ package com.example.a10017404.csgoprosettings;
 
 
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
 
 /**
@@ -16,8 +18,9 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_settings,container,false);
+        ImageView imageView = (ImageView)fragmentView.findViewById(R.id.fragimgview_id);
+        return fragmentView;
     }
 
 }

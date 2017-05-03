@@ -9,8 +9,8 @@ public class Player {
     int imageId;
 
     public Player(String name, int imageId){
-        name=this.name;
-        imageId=this.imageId;
+        this.imageId=imageId;
+        this.name=name;
     }
 
     public String getName(){

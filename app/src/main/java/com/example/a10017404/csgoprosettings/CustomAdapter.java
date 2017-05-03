@@ -24,7 +24,7 @@ public class CustomAdapter extends ArrayAdapter<Player> {
     LayoutInflater inflater;
     int resourceId;
 
-    public CustomAdapter (Context context, int resourceId, ArrayList<Player> list){
+    public CustomAdapter (MainActivity context, int resourceId, ArrayList<Player> list){
         super(context,resourceId,list);
         this.context=context;
         this.resourceId=resourceId;
@@ -36,7 +36,7 @@ public class CustomAdapter extends ArrayAdapter<Player> {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.list_layout,null);
-        ImageView image=(ImageView)view.findViewById(R.id.imageView);
+        ImageView image=(ImageView)view.findViewById(R.id.listimg);
         TextView name=(TextView) view.findViewById(R.id.textView);
         image.setImageResource(list.get(position).getImageId());
         name.setText(list.get(position).getName());

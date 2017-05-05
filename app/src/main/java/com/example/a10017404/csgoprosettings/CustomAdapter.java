@@ -3,6 +3,7 @@ package com.example.a10017404.csgoprosettings;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ public class CustomAdapter extends ArrayAdapter<Player> {
     LayoutInflater inflater;
     int resourceId;
 
-    public CustomAdapter (MainActivity context, int resourceId, ArrayList<Player> list){
+    public CustomAdapter (Activity context, int resourceId, ArrayList<Player> list){
         super(context,resourceId,list);
         this.context=context;
         this.resourceId=resourceId;

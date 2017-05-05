@@ -10,31 +10,26 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-    ListView listView;
-    ArrayList<Player> list = new ArrayList<>();
+public class MainActivity extends AppCompatActivity implements ListFragment.ListClickListener{
+    FragmentTransaction fragmentTransaction;
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        list.add(new Player("Dev1ce", R.drawable.dev1ce));
-        list.add(new Player("Kjaerbye", R.drawable.kjaerbye));
-        listView = (ListView) findViewById(R.id.listView);
-        final CustomAdapter customAdapter = new CustomAdapter(this, 0, list);
-        listView.setAdapter(customAdapter);
-        final FragmentTransaction fragmentTransaction;
-        final FragmentManager fragmentManager;
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                SettingsFragment settingsFragment = new SettingsFragment();
-                fragmentTransaction.replace(R.id.activity_main,settingsFragment);
-                fragmentTransaction.commit();
-            }
-        });
+        ListFragment listFragment = new ListFragment();
+        fragmentTransaction.add(R.id.relativelayout_id,listFragment);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void eventHappened() {
+        fragmentTransaction = fragmentManager.beginTransaction();
+        SettingsFragment settingsFragment = new SettingsFragment();
+        fragmentTransaction.replace(R.id.relativelayout_id,settingsFragment);
+        fragmentTransaction.commit();
     }
 }

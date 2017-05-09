@@ -20,6 +20,7 @@ import java.util.ArrayList;
 public class ListFragment extends Fragment {
     ListClickListener mCallback;
     ArrayList<Player> list = new ArrayList<>();
+    ListView listView;
 
     public interface ListClickListener{
         public void eventHappened();
@@ -40,10 +41,10 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.fragment_settings,container,false);
-        ListView listView = (ListView) fragmentView.findViewById(R.id.listView);
+        listView = (ListView) fragmentView.findViewById(R.id.listView);
         list.add(new Player("Dev1ce", R.drawable.dev1ce));
         list.add(new Player("Kjaerbye", R.drawable.kjaerbye));
-        CustomAdapter customAdapter = new CustomAdapter(this.getActivity(), 0, list);
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), 0, list);
         listView.setAdapter(customAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -11,8 +11,24 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:srcCompat="@drawable/dev1ce"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="55dp"
         android:id="@+id/fragimgview_id"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/backbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Back" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Resolution:                    2" />
 </RelativeLayout>

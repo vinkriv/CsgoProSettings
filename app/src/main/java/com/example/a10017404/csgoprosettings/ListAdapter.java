@@ -20,13 +20,13 @@ import java.util.ArrayList;
  * Created by 10017404 on 5/1/2017.
  */
 
-public class CustomAdapter extends ArrayAdapter<Player> {
+public class ListAdapter extends ArrayAdapter<Player> {
     ArrayList<Player> list;
     Context context;
     LayoutInflater inflater;
     int resourceId;
 
-    public CustomAdapter (Context context, int resourceId, ArrayList<Player> list){
+    public ListAdapter (Context context, int resourceId, ArrayList<Player> list){
         super(context,resourceId,list);
         this.context=context;
         this.resourceId=resourceId;
@@ -37,7 +37,7 @@ public class CustomAdapter extends ArrayAdapter<Player> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.list_layout,null);
+        View view = inflater.inflate(resourceId,null);
         ImageView image=(ImageView)view.findViewById(R.id.listimg);
         TextView name=(TextView) view.findViewById(R.id.textView);
         image.setImageResource(list.get(position).getImageId());

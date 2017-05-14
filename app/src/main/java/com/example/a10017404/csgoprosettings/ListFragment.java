@@ -23,7 +23,7 @@ public class ListFragment extends Fragment {
     ListView listView;
 
     public interface ListClickListener{
-        public void eventHappened();
+        public void listEventHappened();
     }
 
     @Override
@@ -40,16 +40,18 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_settings,container,false);
+        View fragmentView = inflater.inflate(R.layout.fragment_list,container,false);
+        if (list.size()==0){
+            list.add(new Player("Dev1ce", R.drawable.dev1ce));
+            list.add(new Player("Kjaerbye", R.drawable.kjaerbye));
+        }
+        ListAdapter listAdapter = new ListAdapter(getContext(), R.layout.list_layout, list);
         listView = (ListView) fragmentView.findViewById(R.id.listView);
-        list.add(new Player("Dev1ce", R.drawable.dev1ce));
-        list.add(new Player("Kjaerbye", R.drawable.kjaerbye));
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), 0, list);
-        listView.setAdapter(customAdapter);
+        listView.setAdapter(listAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                mCallback.eventHappened();
+                mCallback.listEventHappened();
             }
         });
         return fragmentView;

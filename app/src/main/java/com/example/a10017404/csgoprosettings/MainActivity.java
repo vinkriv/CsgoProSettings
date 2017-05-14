@@ -10,9 +10,11 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements ListFragment.ListClickListener{
+public class MainActivity extends AppCompatActivity implements ListFragment.ListClickListener, SettingsFragment.ListClickListener{
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
+    ListFragment listFragment = new ListFragment();
+    SettingsFragment settingsFragment = new SettingsFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,16 +22,22 @@ public class MainActivity extends AppCompatActivity implements ListFragment.List
         setContentView(R.layout.activity_main);
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        ListFragment listFragment = new ListFragment();
         fragmentTransaction.add(R.id.relativelayout_id,listFragment);
         fragmentTransaction.commit();
     }
 
     @Override
-    public void eventHappened() {
+    public void listEventHappened() {
         fragmentTransaction = fragmentManager.beginTransaction();
-        SettingsFragment settingsFragment = new SettingsFragment();
         fragmentTransaction.replace(R.id.relativelayout_id,settingsFragment);
+        fragmentTransaction.commit();
+    }
+
+
+    @Override
+    public void settingsEventHappened() {
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.relativelayout_id,listFragment);
         fragmentTransaction.commit();
     }
 }

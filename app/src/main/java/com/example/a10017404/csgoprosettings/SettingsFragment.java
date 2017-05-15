@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,7 +38,11 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.fragment_settings,container,false);
+        Integer listItem = getArguments().getInt("ListItem");
+        ArrayList<Player> list = new ArrayList<>();
+        list = getArguments().getParcelableArrayList("ListArray");
         ImageView imageView = (ImageView)fragmentView.findViewById(R.id.fragimgview_id);
+        imageView.setImageResource(list.get(listItem).getImageId());
         Button backbutton = (Button)fragmentView.findViewById(R.id.backbutton);
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override

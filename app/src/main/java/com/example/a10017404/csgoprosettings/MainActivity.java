@@ -15,11 +15,19 @@ public class MainActivity extends AppCompatActivity implements ListFragment.List
     FragmentManager fragmentManager;
     ListFragment listFragment = new ListFragment();
     SettingsFragment settingsFragment = new SettingsFragment();
+    YourSettingsFragment yourSettingsFragment = new YourSettingsFragment();
+    Integer listItem;
+    ArrayList<Player> list = new ArrayList<>();
+    Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        list.add(new Player("Dev1ce", R.drawable.dev1ce));
+        list.add(new Player("Kjaerbye", R.drawable.kjaerbye));
+        bundle.putParcelableArrayList("ListArray",list);
+        listFragment.setArguments(bundle);
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.relativelayout_id,listFragment);
@@ -27,9 +35,20 @@ public class MainActivity extends AppCompatActivity implements ListFragment.List
     }
 
     @Override
-    public void listEventHappened() {
+    public void listEventHappened(Integer listItem) {
         fragmentTransaction = fragmentManager.beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putInt("ListItem",listItem);
+        settingsFragment.setArguments(bundle);
         fragmentTransaction.replace(R.id.relativelayout_id,settingsFragment);
+        fragmentTransaction.commit();
+        this.listItem=listItem;
+    }
+
+    @Override
+    public void buttonEventHappened() {
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.relativelayout_id,yourSettingsFragment);
         fragmentTransaction.commit();
     }
 
@@ -40,4 +59,5 @@ public class MainActivity extends AppCompatActivity implements ListFragment.List
         fragmentTransaction.replace(R.id.relativelayout_id,listFragment);
         fragmentTransaction.commit();
     }
+
 }

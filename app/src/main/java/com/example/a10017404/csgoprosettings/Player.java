@@ -16,6 +16,23 @@ public class Player implements Parcelable{
         this.name=name;
     }
 
+    protected Player(Parcel in) {
+        name = in.readString();
+        imageId = in.readInt();
+    }
+
+    public static final Creator<Player> CREATOR = new Creator<Player>() {
+        @Override
+        public Player createFromParcel(Parcel in) {
+            return new Player(in);
+        }
+
+        @Override
+        public Player[] newArray(int size) {
+            return new Player[size];
+        }
+    };
+
     public String getName(){
         return name;
     }
@@ -31,7 +48,8 @@ public class Player implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-
+        parcel.writeString(name);
+        parcel.writeInt(imageId);
     }
 }
 

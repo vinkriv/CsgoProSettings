@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity implements ListFragment.List
     ListFragment listFragment = new ListFragment();
     SettingsFragment settingsFragment = new SettingsFragment();
     YourSettingsFragment yourSettingsFragment = new YourSettingsFragment();
-    Integer listItem;
     ArrayList<Player> list = new ArrayList<>();
     Bundle bundle = new Bundle();
 
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements ListFragment.List
         setContentView(R.layout.activity_main);
         list.add(new Player("Dev1ce", R.drawable.dev1ce));
         list.add(new Player("Kjaerbye", R.drawable.kjaerbye));
-        bundle.putParcelableArrayList("ListArray",list);
+        bundle.putParcelableArrayList("list",list);
         listFragment.setArguments(bundle);
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -35,14 +34,12 @@ public class MainActivity extends AppCompatActivity implements ListFragment.List
     }
 
     @Override
-    public void listEventHappened(Integer listItem) {
+    public void listEventHappened(Integer listIndex) {
         fragmentTransaction = fragmentManager.beginTransaction();
-        Bundle bundle = new Bundle();
-        bundle.putInt("ListItem",listItem);
+        bundle.putInt("index",listIndex);
         settingsFragment.setArguments(bundle);
         fragmentTransaction.replace(R.id.relativelayout_id,settingsFragment);
         fragmentTransaction.commit();
-        this.listItem=listItem;
     }
 
     @Override

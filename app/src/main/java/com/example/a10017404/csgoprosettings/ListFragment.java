@@ -44,7 +44,8 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.fragment_list,container,false);
-        list = getArguments().getParcelableArrayList("ListArray");
+        list = getArguments().getParcelableArrayList("list");
+        button = (Button)fragmentView.findViewById(R.id.yourSettingsButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

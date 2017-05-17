@@ -5,17 +5,18 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:id="@+id/listimg" />
 
     <TextView
-        android:layout_width="320dp"
-        android:layout_height="65dp"
         android:id="@+id/textView"
-        android:textSize="30sp"
-        android:textColor="@android:color/black"
-        android:layout_marginStart="37dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
         android:layout_alignBottom="@+id/listimg"
-        android:layout_toEndOf="@+id/listimg" />
+        android:layout_marginStart="37dp"
+        android:layout_toEndOf="@+id/listimg"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
 </RelativeLayout>

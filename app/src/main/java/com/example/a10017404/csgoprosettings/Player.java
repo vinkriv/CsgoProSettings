@@ -10,15 +10,27 @@ import android.os.Parcelable;
 public class Player implements Parcelable{
     String name;
     int imageId;
+    String resolution;
+    String stretched;
+    String sens;
+    String dpi;
 
-    public Player(String name, int imageId){
+    public Player(String name, int imageId, String resolution, String stretched, String sens, String dpi){
         this.imageId=imageId;
         this.name=name;
+        this.resolution=resolution;
+        this.stretched=stretched;
+        this.sens=sens;
+        this.dpi=dpi;
     }
 
     protected Player(Parcel in) {
         name = in.readString();
         imageId = in.readInt();
+        resolution = in.readString();
+        stretched = in.readString();
+        sens = in.readString();
+        dpi = in.readString();
     }
 
     public static final Creator<Player> CREATOR = new Creator<Player>() {
@@ -41,6 +53,22 @@ public class Player implements Parcelable{
         return imageId;
     }
 
+    public String getResolution(){
+        return resolution;
+    }
+
+    public String getStretched(){
+        return stretched;
+    }
+
+    public String getSens(){
+        return sens;
+    }
+
+    public String getDpi(){
+        return dpi;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -50,6 +78,10 @@ public class Player implements Parcelable{
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
         parcel.writeInt(imageId);
+        parcel.writeString(resolution);
+        parcel.writeString(stretched);
+        parcel.writeString(sens);
+        parcel.writeString(dpi);
     }
 }
 

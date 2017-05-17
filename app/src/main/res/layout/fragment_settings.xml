@@ -27,7 +27,67 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_alignStart="@+id/fragimgview_id"
         android:layout_centerVertical="true"
-        android:text="Resolution:                    2" />
+        android:text="Resolution: " />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignStart="@+id/fragimgview_id"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="18dp"
+        android:text="Stretched: " />
+
+    <TextView
+        android:id="@+id/resolution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/fragimgview_id"
+        android:layout_alignTop="@+id/textView2"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/stretched"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/resolution"
+        android:layout_alignTop="@+id/textView3"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="18dp"
+        android:text="Sensitivity: " />
+
+    <TextView
+        android:id="@+id/sens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/stretched"
+        android:layout_alignTop="@+id/textView7"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView7"
+        android:layout_below="@+id/textView7"
+        android:layout_marginTop="18dp"
+        android:text="DPI: " />
+
+    <TextView
+        android:id="@+id/dpi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/sens"
+        android:layout_alignTop="@+id/textView9"
+        android:text="TextView" />
 </RelativeLayout>

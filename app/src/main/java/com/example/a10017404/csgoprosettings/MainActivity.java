@@ -28,11 +28,16 @@ public class MainActivity extends AppCompatActivity implements ListFragment.List
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        list.add(new Player("Dev1ce", R.drawable.dev1ce,"1024x768","No (Black Bars)","2.3","400"));
-        list.add(new Player("Kjaerbye", R.drawable.kjaerbye,"1440x900","No (Black Bars)","1.8","400"));
-        list.add(new Player("Xyp9x", R.drawable.xyp9x,"1680×1050","No (Black Bars)","1","800"));
-        list.add(new Player("Gla1ve", R.drawable.gla1ve,"1280×960","Yes","2.2","400"));
-        list.add(new Player("Dupreeh", R.drawable.dupreeh,"1280×800","Yes","1.8","400"));
+        list.add(new Player("Dev1ce", R.drawable.dev1ce, R.drawable.astralis, "1024x768","No (Black Bars)","2.3","400"));
+        list.add(new Player("Kjaerbye", R.drawable.kjaerbye, R.drawable.astralis, "1440x900","No (Black Bars)","1.8","400"));
+        list.add(new Player("Xyp9x", R.drawable.xyp9x, R.drawable.astralis, "1680×1050","No (Black Bars)","1","800"));
+        list.add(new Player("Gla1ve", R.drawable.gla1ve, R.drawable.astralis, "1280×960","Yes","2.2","400"));
+        list.add(new Player("Dupreeh", R.drawable.dupreeh, R.drawable.astralis, "1280×800","Yes","1.8","400"));
+        list.add(new Player("N0thing", R.drawable.n0thing, R.drawable.c9, "1024×768","No (Black Bars)","1.7","400"));
+        list.add(new Player("Shroud", R.drawable.shroud, R.drawable.c9, "1920×1080","No","2.1","400"));
+        list.add(new Player("Stewie2K", R.drawable.stew, R.drawable.c9, "1024×768","No (Black Bars)","1.85","450"));
+        list.add(new Player("Autimatic", R.drawable.auti, R.drawable.c9, "1280×960","Yes","1.9","400"));
+        list.add(new Player("Skadoodle", R.drawable.ska, R.drawable.c9, "1024×768","No (Black Bars)","1.4","800"));
         bundle.putParcelableArrayList("list",list);
         listFragment.setArguments(bundle);
         fragmentManager = getSupportFragmentManager();

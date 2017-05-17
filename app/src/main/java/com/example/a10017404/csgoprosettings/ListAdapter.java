@@ -2,6 +2,7 @@ package com.example.a10017404.csgoprosettings;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -41,7 +42,14 @@ public class ListAdapter extends ArrayAdapter<Player> {
         ImageView image=(ImageView)view.findViewById(R.id.listimg);
         TextView name=(TextView) view.findViewById(R.id.textView);
         image.setImageResource(list.get(position).getImageId());
-        name.setText(list.get(position).getName());
+        name.setBackgroundResource(list.get(position).getTeamId());
+        name.setText("     "+list.get(position).getName());
+        if (list.get(position).getTeamId()==R.drawable.astralis){
+            name.setTextColor(Color.WHITE);
+        }
+        if (list.get(position).getTeamId()==R.drawable.c9){
+            name.setTextColor(Color.BLACK);
+        }
         return view;
     }
 }
